@@ -124,5 +124,4 @@ async def inline_test(event):
     )]
     await AnimeBot(SetInlineBotResultsRequest(event.id,
         results=results,
-        cache_time=0,
-        gallery=False))
+        cache_time=0))
