@@ -69,7 +69,8 @@ async def inline_anime(event):
                 ),
                 mime_type="image/png"
             ),
-            buttons=buttons,
+            text=msg,
+            buttons=buttons
         )
         await event.answer([results] if results else None)
 
