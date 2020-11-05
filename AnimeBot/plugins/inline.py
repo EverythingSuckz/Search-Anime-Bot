@@ -101,7 +101,7 @@ async def inline_test(event):
         type="photo",
         text="Bruh",
         force_document=False)
-    AnimeBot.SetInlineBotResultsRequest(event.id,
+    await AnimeBot(SetInlineBotResultsRequest(event.id,
         results=[r3],
         cache_time=0,
-        gallery=False)
+        gallery=False))
