@@ -48,7 +48,6 @@ async def inline_anime(event):
                         ]
                     ]
         results = builder.photo(
-            include_media=False,
             file=image,
             text=msg,
             buttons=buttons
@@ -102,7 +101,7 @@ async def inline_test(event):
         type="photo",
         text="Bruh",
         force_document=False)
-
-    await event.answer([r3],
-        switch_pm="Switch to PM",
-        switch_pm_param="start")
+    AnimeBot.SetInlineBotResultsRequest(event.id,
+        results=[r3],
+        cache_time=0,
+        gallery=False)
