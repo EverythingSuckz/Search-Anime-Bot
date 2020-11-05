@@ -11,9 +11,8 @@ async def inline_anime(event):
     builder = event.builder
     results = []
     query = event.text
-    part = query.split()[0]
-    if part.startswith("anime"):
-        search = part.split(None, 1)[1]
+    if query.split()[0] == "anime":
+        search = query.split(None, 1)[1]
         variables = {'search': search}
         json = requests.post(GRAPHQL, json={'query': anime_query, 'variables': variables}).json()[
             'data'].get('Media', None)

@@ -8,7 +8,7 @@ from telethon.tl.types import KeyboardButtonCallback
 @AnimeBot.on(events.NewMessage(pattern="^/start ?(.*)"))
 async def start(event):
     vent = event.chat_id
-    full = await AnimeBot(GetFullUserRequest(event.from_id))
+    full = await AnimeBot.GetFullUserRequest(event.from_id)
     await AnimeBot.send_message(event.chat_id, f"Hi [{(full.user.first_name)}](tg://user?id={event.from_id}),\nThis bot in Test Stage!",
         buttons=[
             [
