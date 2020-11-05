@@ -1,4 +1,5 @@
 from AnimeBot import AnimeBot
+from telethon import events
 
 @AnimeBot.on(events.NewMessage(incoming=True, pattern='/start ?(.*)'))
 async def anime(event):
