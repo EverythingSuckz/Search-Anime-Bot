@@ -1,0 +1,44 @@
+{
+    "name": "Search-Anime-Bot",
+    "description": "BRUH",
+    "logo": "https://telegra.ph/file/19dad86d7b1009f1d6911.jpg",
+      "keywords": [
+      "telegram",
+      "bot",
+      "anime",
+      "search",
+      "productivity"
+    ],
+    "repository": "https://github.com/JyothisJayanth/Search-Anime-Bot",
+    "website": "#TODO",
+    "success_url": "#TODO",
+    "env": {
+      "API_ID": {
+        "description": "Get this value from my.telegram.org! Please do not steal",
+        "value": ""
+      },
+      "API_HASH": {
+        "description": "Get this value from my.telegram.org! Please do not steal",
+        "value": ""
+      },
+      "BOT_TOKEN": {
+        "description": "Get this value from @BotFather",
+        "value": ""
+      },
+      "DB_URI": {
+        "description": "Database",
+        "value": "",
+        "required": false
+      }
+    },
+    "addons": [{
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }],
+    "buildpacks": [{
+      "url": "heroku/python"
+    }]
+  }
+  

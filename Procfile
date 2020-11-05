@@ -1,0 +1,1 @@
+AnimeBot: python -m AnimeBot
