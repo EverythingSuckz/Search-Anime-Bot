@@ -47,23 +47,12 @@ async def inline_anime(event):
                             Button.url("More Info", url=info)
                         ]
                     ]
-        size = DocumentAttributeImageSize(w=int(42), h=int(42))
-        results = builder.article(
+        results = builder.photo(
             title=json['title']['romaji'],
             description=f"{json['format']} | {json.get('episodes', 'N/A')} Episodes",
             url=info,
-            thumb=InputWebDocument(
-                url=image,
-                size=int(42),
-                attributes=size,
-                mime_type="image/png"
-            ),
-            content=InputWebDocument(
-                url=image,
-                size=42,
-                attributes=size,
-                mime_type="image/png"
-            ),
+            include_media=False,
+            file=image,
             text=msg,
             buttons=buttons
         )
@@ -73,9 +62,12 @@ async def inline_anime(event):
 async def inline_test(event):
     query = event.pattern_match.group(1)
     response = requests.get("https://img.anili.st/media/21120")
+    file = open("sample_image.jpg", "wb")
+    file.write(response.content)
+    file.close()
     builder = event.builder
     r3 = builder.document(
-        file=response.content,
+        file="sample_image.jpg",
         title="Hello World",
         description="Bruh",
         type="photo",
