@@ -32,7 +32,7 @@ EVERYTHINGSUCKS = [
     "You've Clicked this Button"
 ]
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"test")))
+@AnimeBot.on(events.callbackquery.CallbackQuery(data=re.compile(b"test")))
 async def thissucks(event):
         bruh = random.choice(EVERYTHINGSUCKS)
         await event.answer(bruh, alert=True)
