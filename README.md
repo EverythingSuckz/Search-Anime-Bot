@@ -1,7 +1,7 @@
 # Search Anime Bot
 **A Simple Telegram bot based on Telethon for Searching Anime.**
 
-##ToDo(s)
+## ToDo(s)
 - [x] Basic Anime Searching
 - [ ] Manga Search Support
 - [ ] Airing Search Support
@@ -26,6 +26,6 @@ python3 -m tobrot
 ```
 
 ## Credits
-*Wrench (Me)
-*[Dank-del](https://github.com/Dank-del) for his [EsseX](https://github.com/Dank-del/EsseX)
-*[Lonami](https://github.com/Lonami) for [Telethon Library](https://github.com/LonamiWebs/Telethon)
+- Wrench (Me)
+- [Dank-del](https://github.com/Dank-del) for his [EsseX](https://github.com/Dank-del/EsseX)
+- [Lonami](https://github.com/Lonami) for [Telethon Library](https://github.com/LonamiWebs/Telethon)
