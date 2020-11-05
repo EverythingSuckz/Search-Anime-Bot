@@ -2,6 +2,7 @@ from AnimeBot import AnimeBot
 from telethon import events, Button
 from ..helpers.search import shorten, anime_query, GRAPHQL
 import requests
+import telethon
 from telethon.tl.types import BotInlineResult, InputBotInlineMessageMediaAuto, DocumentAttributeImageSize, InputWebDocument, InputBotInlineResult
 from telethon.tl.functions.messages import SetInlineBotResultsRequest
 
