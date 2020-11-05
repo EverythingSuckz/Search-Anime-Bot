@@ -49,7 +49,7 @@ async def inline_anime(event):
                             ]
                         ]
             content = InputBotInlineMessageMediaAuto(msg)
-            results = await InputBotInlineResult(
+            results = InputBotInlineResult(
                 id=event.id,
                 type='photo',
                 send_message=content,
