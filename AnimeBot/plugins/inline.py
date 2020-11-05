@@ -62,7 +62,7 @@ async def inline_anime(event):
                         w=42,
                         h=42
                     ),
-                    mime_type="image/jpeg"
+                    mime_type="image/png"
                 ),
                 content=InputWebDocument(
                     url=image,
@@ -71,7 +71,7 @@ async def inline_anime(event):
                         w=42,
                         h=42
                     ),
-                    mime_type="image/jpeg"
+                    mime_type="image/png"
                 ),
             ))
             try:
