@@ -1,3 +1,4 @@
+import re
 import random
 from AnimeBot import AnimeBot
 from telethon import events
