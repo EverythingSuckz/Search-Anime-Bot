@@ -51,15 +51,12 @@ async def anime(event):
                     ]
         if image:
             try:
-                await AnimeBot.send_file(event.chat_id, image, caption=msg, buttons=buttons, reply_to=event.id)
-                await ing.delete()
-                file = open("results.txt", "w+")
-                file.write(str(json))
+                response = requests.get(image)
+                file = open("anilist.jpg", "wb")
+                file.write(response.content)
                 file.close()
-                await AnimeBot.send_file(event.chat_id, "results.txt")
-                await os.remove("results.txt")
+                await AnimeBot.send_file(event.chat_id, "anilist.jpg", caption=msg, buttons=buttons, reply_to=event.id, force_document=False)
+                await ing.delete()
             except:
                 msg += f" [〽️]({image})"
-                await ing.edit(msg)
-        else:
-            await ing.edit(msg)
+                await ing.edit(msg, buttons=buttons)
