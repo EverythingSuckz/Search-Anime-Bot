@@ -9,9 +9,8 @@ from telethon.tl.functions.messages import SetInlineBotResultsRequest
 @AnimeBot.on(events.InlineQuery)
 async def inline_anime(event):
     builder = event.builder
-    results = []
     query = event.text
-    if query.split()[0] == "anime":
+    if query.split()[0] == "anilist":
         search = query.split(None, 1)[1]
         variables = {'search': search}
         json = requests.post(GRAPHQL, json={'query': anime_query, 'variables': variables}).json()[
@@ -50,7 +49,7 @@ async def inline_anime(event):
                             ]
                         ]
             content = InputBotInlineMessageMediaAuto(msg)
-            await results.append(InputBotInlineResult(
+            results = await InputBotInlineResult(
                 id=event.id,
                 type='photo',
                 send_message=content,
@@ -73,7 +72,7 @@ async def inline_anime(event):
                     ),
                     mime_type="image/png"
                 ),
-            ))
+            )
             try:
                 await event.client(SetInlineBotResultsRequest(
                     query_id=event.id,
