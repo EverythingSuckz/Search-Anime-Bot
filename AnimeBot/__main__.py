@@ -13,6 +13,9 @@ for name in files:
         patt = Path(a.name)
         plugin_name = patt.stem
         load_plugins(plugin_name.replace(".py", ""))
+    
+print("Search Anime Bot is Up!! !")
+print("Enjoy")
 
 if __name__ == "__main__":
     AnimeBot.run_until_disconnected()

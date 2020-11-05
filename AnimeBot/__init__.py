@@ -1,7 +1,9 @@
 import os
 from telethon import TelegramClient, events
 import logging
+import time
 
+StartTime = time.time()
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
 
