@@ -48,9 +48,6 @@ async def inline_anime(event):
                         ]
                     ]
         results = builder.photo(
-            title=json['title']['romaji'],
-            description=f"{json['format']} | {json.get('episodes', 'N/A')} Episodes",
-            url=info,
             include_media=False,
             file=image,
             text=msg,
@@ -61,13 +58,9 @@ async def inline_anime(event):
 @AnimeBot.on(events.InlineQuery(pattern='test ?(.*)'))
 async def inline_test(event):
     query = event.pattern_match.group(1)
-    response = requests.get("https://img.anili.st/media/21120")
-    file = open("sample_image.jpg", "wb")
-    file.write(response.content)
-    file.close()
     builder = event.builder
     r3 = builder.document(
-        file="sample_image.jpg",
+        file="https://img.anili.st/media/21120",
         title="Hello World",
         description="Bruh",
         type="photo",
