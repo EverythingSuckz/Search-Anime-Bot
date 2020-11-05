@@ -22,7 +22,7 @@ cd Search-Anime-Bot
 virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
-python3 -m tobrot
+python3 -m AnimeBot
 ```
 
 ## Credits
