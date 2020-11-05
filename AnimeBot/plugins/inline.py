@@ -94,14 +94,35 @@ async def inline_test(event):
                         ]
                     ]
     builder = event.builder
-    r3 = builder.document(
-        file=image,
-        title="Hello World",
-        description="Bruh",
-        type="photo",
-        text="Bruh",
-        force_document=False)
+    results=[InputBotInlineResult(
+        id=event.id,
+        type='photo',
+        send_message=InputBotInlineMessageMediaAuto(
+            message=msg
+        ),
+        title=json['title']['romaji'],
+        description='image/png',
+        url=info,
+        thumb=InputWebDocument(
+        url=image,
+            size=42,
+            mime_type='image/png',
+            attributes=[DocumentAttributeImageSize(
+                w=42,
+                h=42
+            )]
+        ),
+        content=InputWebDocument(
+            url=image,
+            size=42,
+            mime_type='image/png',
+            attributes=[DocumentAttributeImageSize(
+                w=42,
+                h=42
+            )]
+        )
+    )]
     await AnimeBot(SetInlineBotResultsRequest(event.id,
-        results=[r3],
+        results=results,
         cache_time=0,
         gallery=False))
