@@ -47,26 +47,21 @@ async def inline_anime(event):
                             Button.url("More Info", url=info)
                         ]
                     ]
+        size = DocumentAttributeImageSize(w=int(42), h=int(42))
         results = builder.article(
             title=json['title']['romaji'],
             description=f"{json['format']} | {json.get('episodes', 'N/A')} Episodes",
             url=info,
             thumb=InputWebDocument(
                 url=image,
-                size=42,
-                attributes=DocumentAttributeImageSize(
-                    w=42,
-                    h=42
-                ),
+                size=int(42),
+                attributes=size,
                 mime_type="image/png"
             ),
             content=InputWebDocument(
                 url=image,
                 size=42,
-                attributes=DocumentAttributeImageSize(
-                    w=42,
-                    h=42
-                ),
+                attributes=size,
                 mime_type="image/png"
             ),
             text=msg,
@@ -77,9 +72,16 @@ async def inline_anime(event):
 @AnimeBot.on(events.InlineQuery(pattern='test ?(.*)'))
 async def inline_test(event):
     query = event.pattern_match.group(1)
+    response = requests.get("https://img.anili.st/media/21120")
     builder = event.builder
-    r1 = builder.article(f'Be nice {query}', text='Have a nice day')
-    r2 = builder.article(f'Be bad {query}', text="I don't like you")
-    await event.answer([r1, r2],
+    r3 = builder.document(
+        file=response.content,
+        title="Hello World",
+        description="Bruh",
+        type="photo",
+        text="Bruh",
+        force_document=False)
+
+    await event.answer([r3],
         switch_pm="Switch to PM",
         switch_pm_param="start")
