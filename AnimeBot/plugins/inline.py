@@ -86,7 +86,6 @@ async def inline_anime(event):
 @AnimeBot.on(events.InlineQuery)
 async def inline_anime(event):
     builder = event.builder
-    results = []
     query = event.text
     if query.split()[0] == "anime":
         search = query.split(None, 1)[1]
@@ -126,9 +125,9 @@ async def inline_anime(event):
                                 Button.url("More Info", url=info)
                             ]
                         ]
-            await results.append(builder.photo(
+            results = await builder.photo(
                 file=image,
                 text=msg,
                 buttons=buttons,
-            ))
+            )
             await event.answer([results] if results else None)
