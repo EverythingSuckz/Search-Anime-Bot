@@ -167,7 +167,8 @@ async def inline_test(event):
                     ]
     builder = event.builder
     size = DocumentAttributeImageSize(w=int(42), h=int(42))
-    results = builder.article(
+    results = []
+    results.append[builder.article(
         title=json['title']['romaji'],
         description=f"{json['format']} | {json.get('episodes', 'N/A')} Episodes",
         url=info,
@@ -185,5 +186,5 @@ async def inline_test(event):
         ),
         text=msg,
         buttons=buttons
-    )
-    await event.answer([results] if results else None)
+    )]
+    await event.answer(results if results else None)
